@@ -82,10 +82,6 @@ public class XaldinToys extends JavaPlugin implements Listener {
             }
 
                 if(args[0].equalsIgnoreCase("banish")){
-                if (!(sender instanceof Player)) {
-                    sender.sendMessage("Y U NO PLAYER??!111");
-                    return true;
-                }
                 Player p = (Player)sender;
                 if(args.length < 2){
                     p.sendMessage("Needs more arguments");
@@ -170,10 +166,6 @@ public class XaldinToys extends JavaPlugin implements Listener {
 
 
             if (args[0].equalsIgnoreCase("space")) {
-            if (!(sender instanceof Player)) {
-                sender.sendMessage("Y U NO PLAYER??!111");
-                return true;
-            }
 
             Player p = (Player)sender;
             List<Entity> l = p.getNearbyEntities(20, 20, 20);
@@ -187,10 +179,7 @@ public class XaldinToys extends JavaPlugin implements Listener {
             }
             return true;
         }
-            if (args[0].equalsIgnoreCase("fop") && sender instanceof Player){
-
-
-
+            if (args[0].equalsIgnoreCase("fop")){
                 if(args.length != 2){
                     sender.sendMessage("Please check your string!");
                     return true;
@@ -238,7 +227,7 @@ public class XaldinToys extends JavaPlugin implements Listener {
                 return true;
             }
 
-            if (args[0].equalsIgnoreCase("gg") && sender instanceof Player){
+            if (args[0].equalsIgnoreCase("gg")){
                 final Player p = (Player) sender;
                 getServer().broadcastMessage(ChatColor.DARK_RED +""+ ChatColor.UNDERLINE +"[WARNING] Someone enraged " + p.getName()+"!");
                 for (int i = 0; i < 3; i++){
@@ -274,7 +263,7 @@ public class XaldinToys extends JavaPlugin implements Listener {
                 }
                 return true;
             }
-            if (args[0].equalsIgnoreCase("sgg") && sender instanceof Player){
+            if (args[0].equalsIgnoreCase("sgg")){
                 final Player p = (Player) sender;
                 for (int i = 0; i < 3; i++){
                     getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
