@@ -24,10 +24,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 public class XaldinToys extends JavaPlugin implements Listener {
@@ -54,7 +51,7 @@ public class XaldinToys extends JavaPlugin implements Listener {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (sender instanceof Player || command.getName().equalsIgnoreCase("xt")) {
+        if (sender instanceof Player && command.getName().equalsIgnoreCase("xt")) {
             if (!permission.has((Player) sender, "xt.use") && !sender.isOp()) {
                 sender.sendMessage("You don't have permission to do this.");
                 return true;
@@ -95,8 +92,8 @@ public class XaldinToys extends JavaPlugin implements Listener {
                 banished.teleport(banished.getWorld().getSpawnLocation());
                 return true;
             }
-
-
+//
+//
 //            if(args[0].equalsIgnoreCase("test")){
 //                if (!(sender instanceof Player)) {
 //                    sender.sendMessage("Y U NO PLAYER??!111");
@@ -114,46 +111,74 @@ public class XaldinToys extends JavaPlugin implements Listener {
 //                                    final double origx = b.getLocation().getX();
 //                                    final double origy = b.getLocation().getY();
 //                                    final double origz = b.getLocation().getZ();
-//                                    ArrayList<Block> blockstobreak = new ArrayList<Block>();
-//                                    int i = 0;
-//                                    for(int y = -20; y < 20; y++){
-//                                        for(int x = -20; x < 20; x++){
-//                                            for(int z = -20; z < 20; z++){
+//                                    HashMap<Block,Material> map1 = new HashMap<Block, Material>();
+////                                    for(int y = -5; y < 5; y++){
+////                                        for(int x = -5; x < 5; x++){
+////                                            for(int z = -5; z < 5; z++){
+////
+////                                                l.setX(origx + x);
+////                                                l.setY(origy + y);
+////                                                l.setZ(origz + z);
+////                                                if(!(l.getBlockY() < 0 && l.getBlockY() < 256)){
+////                                                    blockstobreak.add(w.getBlockAt(l));
+////                                                    i++;
+////                                                }
+////                                            }
+////
+////                                        }
+////                                    }
 //
-//                                                l.setX(origx + x);
-//                                                l.setY(origy + y);
-//                                                l.setZ(origz + z);
-//                                                if(!(l.getBlockY() < 0 && l.getBlockY() < 256)){
-//                                                    blockstobreak.add(w.getBlockAt(l));
-//                                                    i++;
-//                                                }
+//                                    for(int x = -3; x <= 3; x++){
+//                                        for(int z = -3; z <= 3; z++){
+//
+//                                            l.setX(origx + x);
+//                                            l.setZ(origz + z);
+//                                            if(!(l.getBlockY() < 0 && l.getBlockY() < 256)){
+//                                                map1.put(w.getBlockAt(l), Material.GOLD_BLOCK);
 //                                            }
-//
 //                                        }
-//                                    }
-//                                    final int idDiamond = Material.DIAMOND_BLOCK.getId();
-//                                    final int idGold = Material.GOLD_BLOCK.getId();
 //
-//                                    p.sendMessage("Setting " + i);
+//                                    }
+//                                    for(int x = -2; x <= 2; x++){
+//                                        for(int z = -2; z <= 2; z++){
+//                                            l.setY(origy + 1);
+//                                            l.setX(origx + x);
+//                                            l.setZ(origz + z);
+//                                            if(!(l.getBlockY() < 0 && l.getBlockY() < 256)){
+//                                                map1.put(w.getBlockAt(l), Material.GOLD_BLOCK);
+//                                            }
+//                                        }
+//
+//                                    }
+//                                    for(int x = -1; x <= 1; x++){
+//                                        for(int z = -1; z <= 1; z++){
+//                                            l.setY(origy + 2);
+//
+//                                            l.setX(origx + x);
+//                                            l.setZ(origz + z);
+//                                            if(!(l.getBlockY() < 0 && l.getBlockY() < 256)){
+//                                                map1.put(w.getBlockAt(l), Material.GOLD_BLOCK);
+//                                            }
+//                                        }
+//
+//                                    }
+//
+//                                    l.setY(origy + 3);
+//                                    l.setX(origx -1);
+//                                    if(!(l.getBlockY() < 0 && l.getBlockY() < 256)){
+//                                                map1.put(w.getBlockAt(l), Material.GOLD_BLOCK);
+//                                    }
+//
+//                                p.sendMessage("Setting " + map1.size());
 //                                    getLogger().info("Starting settest");
 //                                    int i2 = 0;
 //                                    long start = System.currentTimeMillis();
-//                                    for(Block b2 : blockstobreak){
-//                                       i2++;
-//                                        Boolean randbool = rand.nextBoolean();
-//                                          b2.setTypeId( randbool? idDiamond : idGold);
-//                                       if(i2 == 100){
-//                                        try {
-//                                         i2 = 0;
-//                                            sleep(1);
-//                                        } catch (InterruptedException e) {
-//                                            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//                                        }
-//                                       }
+//                                    //blocks
 //
-//                                    }
-//                                    long end = System.currentTimeMillis();
-//                                    getLogger().info("Done. Took " + (end - start) + "ms");
+//                        for(Map.Entry<Block, Material> es :map1.entrySet()){
+//                             es.getKey().setType(es.getValue());
+//                         }
+//
 //                                }
 //                            }.start();
 //
@@ -302,7 +327,15 @@ public class XaldinToys extends JavaPlugin implements Listener {
         return false;
 
     }
+    public ArrayList<Block> reverse(ArrayList<Block> list)
+    {
+        ArrayList<Block> theReturn = new ArrayList<Block>(list.size());
 
+        for(int i=list.size()-1;i>=0;i--)
+            theReturn.add(list.get(i));
+
+        return theReturn;
+    }
 
     public void trip(Player p) {
         Packet41MobEffect packetm = new Packet41MobEffect();
