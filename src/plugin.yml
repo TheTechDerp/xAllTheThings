@@ -1,12 +1,14 @@
 author: Benjamin James Harrison-Sims
 database: false
-generator: http://dinnerbone.com/minecraft/tools/pluginator/
-main: me.tehrainbowguy.xtoys.XaldinToys
-name: XaldinToys
+main: com.xegaming.xTroll.xTroll
+name: xTroll
 startup: postworld
 version: '1.0'
 depend: [Vault]
 commands:
-    xt:
-        description: Description
-        usage: /<command> [arguments]
+    trip:
+        description: Trippin.
+        usage: /<command> [Player/All]
+    banish:
+        description: BANISHMENT.
+        usage: /<command> [Player]
