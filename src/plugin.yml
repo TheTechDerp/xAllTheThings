@@ -3,7 +3,7 @@ database: false
 main: com.xegaming.xTroll.xTroll
 name: xTroll
 startup: postworld
-version: '1.0'
+version: '2.0'
 depend: [Vault]
 commands:
     trip:
@@ -12,3 +12,9 @@ commands:
     banish:
         description: BANISHMENT.
         usage: /<command> [Player]
+    fakeop:
+        description: For the lulz.
+        usage: /<command> [Player/All]
+    space:
+        description: GIMMEH SPACE.
+        usage: /<command>
