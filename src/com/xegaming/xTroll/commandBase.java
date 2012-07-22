@@ -9,7 +9,7 @@ public abstract class commandBase implements CommandExecutor {
     protected static xTroll XE;
     // Permission permission = xEssentials.permission;
 
-    protected commandBase(xTroll XE) {
+    public commandBase(xTroll XE) {
         commandBase.XE = XE;
     }
 

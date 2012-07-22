@@ -1,5 +1,7 @@
-package com.xegaming.xTroll;
+package com.xegaming.xTroll.commands;
 
+import com.xegaming.xTroll.commandBase;
+import com.xegaming.xTroll.xTroll;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
@@ -27,7 +29,7 @@ public class banishCommand extends commandBase {
         }
     }
 
-    protected banishCommand(xTroll XE) {
+    public banishCommand(xTroll XE) {
         super(XE);
     }
 }

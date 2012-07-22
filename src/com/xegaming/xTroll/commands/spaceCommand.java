@@ -1,5 +1,7 @@
-package com.xegaming.xTroll;
+package com.xegaming.xTroll.commands;
 
+import com.xegaming.xTroll.commandBase;
+import com.xegaming.xTroll.xTroll;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -27,7 +29,7 @@ public class spaceCommand extends commandBase {
         }
     }
 
-    protected spaceCommand(xTroll XE) {
+    public spaceCommand(xTroll XE) {
         super(XE);
     }
 }

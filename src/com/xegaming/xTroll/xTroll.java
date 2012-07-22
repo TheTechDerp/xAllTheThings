@@ -1,6 +1,7 @@
 package com.xegaming.xTroll;
 
 
+import com.xegaming.xTroll.commands.*;
 import net.milkbowl.vault.permission.Permission;
 import net.minecraft.server.Packet41MobEffect;
 import net.minecraft.server.Packet42RemoveMobEffect;
@@ -30,11 +31,13 @@ public class xTroll extends JavaPlugin implements Listener {
     public void onEnable() {
         setupPermissions();
         //TrollCraft
-        getServer().getPluginManager().registerEvents(new playerListener(), this);
+        getServer().getPluginManager().registerEvents(new xListener(this), this);
+
         this.getCommand("trip").setExecutor(new tripCommand(this));
         this.getCommand("fakeop").setExecutor(new fakeopCommand(this));
         this.getCommand("banish").setExecutor(new banishCommand(this));
         this.getCommand("space").setExecutor(new spaceCommand(this));
+        this.getCommand("test").setExecutor(new testCommand(this));
         System.out.println(this + " is now enabled!");
     }
 
@@ -56,5 +59,6 @@ public class xTroll extends JavaPlugin implements Listener {
             }
         }, 300L);
     }
+
 
 }

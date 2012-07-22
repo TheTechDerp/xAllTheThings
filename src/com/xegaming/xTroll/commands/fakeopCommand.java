@@ -1,5 +1,7 @@
-package com.xegaming.xTroll;
+package com.xegaming.xTroll.commands;
 
+import com.xegaming.xTroll.commandBase;
+import com.xegaming.xTroll.xTroll;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -59,7 +61,7 @@ public class fakeopCommand extends commandBase {
         }
     }
 
-    protected fakeopCommand(xTroll XE) {
+    public fakeopCommand(xTroll XE) {
         super(XE);
     }
 }
